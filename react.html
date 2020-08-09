@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <title>Reaction Test - Fitness Calc</title>
+    <script src="p5.js"></script>
+    <script src="p5.dom.min.js"></script>
+    <script src="p5.sound.min.js"></script>
+    <script src="./p5.play.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header">
+        <a href="index.html">Fitness Calc</a>
+    </div>
+    <div id="topbar">
+        <a href="index.html#spacing">FOOD</a>
+        <a href="bmi.html">BMI &nbsp; & &nbsp; CALORIE REQUIREMENT</a>
+        <a href="index.html#excercise">EXERCISES &nbsp; & &nbsp; <i>CALORIES-BURNED &nbsp; CALCULATOR</i></a>
+        <a href="#react">REACTION - SPEED</a>
+    </div>
+    <div id="spacing"></div>
+    <div id="react" class="gbox">
+        <div id="column" class="big">
+            <h5>R E A C T I O N  -  S P E E D</h5>
+            <br><br><br><br> 
+            <br><br><br><br>
+            <br><br><br><br>
+            <br><br><br><br>
+            <br><br><br><br>
+            <br><br><br><br>
+            <br><br><br><br>
+            <p>
+                (made in JavaScript with p5.js)
+                <br>
+                <br>
+                Quick reactions along with alertedness are very useful. Check your reaction speed.
+                <br>
+                [you will need a mouse with a preferably fast laptop/desktop]
+            </p>
+        </div>
+    </div>
+    <script src="react.js"></script>
+    <script>
+        window.onscroll = function(){
+            stick();
+        };
+        
+        var topb = document.getElementById("topbar");
+        var sp = document.getElementById("spacing");
+        var sticky = topb.offsetTop;
+        
+        function stick() {
+          if (window.pageYOffset >= sticky) {
+            topb.classList.add("stuck");
+            sp.classList.add("stuck");
+          } else {
+            topb.classList.remove("stuck");
+            sp.classList.remove("stuck");
+          }
+        }
+    </script>  
+</body>
+</html>

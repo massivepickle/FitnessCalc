@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+    <title>BMI & Caloric Needs Calculator - Fitness Calc</title>
+    <script src="p5.js"></script>
+    <script src="p5.dom.min.js"></script>
+    <script src="p5.sound.min.js"></script>
+    <script src="./p5.play.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header">
+        <a href="index.html">Fitness Calc</a>
+    </div>
+    <div id="topbar">
+        <a href="index.html#spacing">FOOD</a>
+        <a href="#bmi">BMI &nbsp; & &nbsp; CALORIE REQUIREMENT</a>
+        <a href="index.html#excercise">EXERCISES &nbsp; & &nbsp; <i>CALORIES-BURNED &nbsp; CALCULATOR</i></a>
+        <a href="react.html">REACTION - SPEED</a>
+    </div>
+    <div id="spacing"></div>
+    <div id="bmi" class="gbox">
+        <div id="column" class="big">
+            <h5>B O D Y &nbsp; M A S S &nbsp; I N D E X</h5>
+            <p>
+                <br><br>
+                (made in JavaScript with p5.js)
+                <br>
+                <br>
+                BMI tells how fit you are. Input height in meters and weight in kilograms. <a id="a" href="#calq">Click here</a>/scroll down to estimate your caloric needs.
+            </p>
+        </div>
+    </div>
+    <script src="bmi.js"></script>
+    <div id="calq" class="gbox">
+        <div id="column" class="big">
+            <h5>C A L O R I E &nbsp; R E Q U I R E M E N T</h5>
+            <p>
+                <br><br>                
+                <br>
+                Select the amount of physical activity, gender and input your age.
+                <br>
+                Input height and weight in the BMI section. 
+            </p>
+        </div>
+    </div>
+
+    <script>
+        window.onscroll = function(){
+            stick();
+        };
+        
+        var topb = document.getElementById("topbar");
+        var sp = document.getElementById("spacing");
+        var sticky = topb.offsetTop;
+        
+        function stick() {
+          if (window.pageYOffset >= sticky) {
+            topb.classList.add("stuck");
+            sp.classList.add("stuck");
+          } else {
+            topb.classList.remove("stuck");
+            sp.classList.remove("stuck");
+          }
+        }
+    </script>  
+</body>
+</html>

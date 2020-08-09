@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<head>
+    <title>Fitness Calc - HOME</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header">
+        <a href="#header">Fitness Calc</a>
+    </div>
+    <div id="topbar">
+        <a href="#spacing">FOOD</a>
+        <a href="bmi.html">BMI &nbsp; & &nbsp; CALORIE REQUIREMENT</a>
+        <a href="#excercise">EXERCISES &nbsp; & &nbsp; <i>CALORIES-BURNED &nbsp; CALCULATOR</i></a>
+        <a href="react.html">REACTION - SPEED</a>
+    </div>
+    <div id="spacing"></div>
+    <div id="food" class="gbox">
+        <div id="column">
+            <h5>F O O D</h5>
+            <p>
+                Refer to this calorie chart to calculate your calorie intake.
+                <br>
+                Use buttons at the bottom of the spreadsheet to navigate to different meal categories.
+                <br><br>
+                The <a id="a" href="bmi.html" target="_blank">BMI & CALORIE REQUIRMENT</a> category will calculate how many calories you need.
+            </p>
+        </div>
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTit0LVqjxRAMtipZITX7LJtKXHD-hk-ZywX-7D7YOMhPSK3kxiQqMVLpuk0Jogeflv6DqJNadpvhZN/pubhtml?widget=true&amp;headers=false" 
+        width="666px" height="918"></iframe>
+    </div>
+    <div id="excercise" class="gbox">
+        <div id="column">
+            <h5>E X C E R C I S E</h5>
+            <p>
+                Click on any excercise to know it's benefits and related details.
+                <br><br>
+                The calculator for each which will help estimate how many calories you burned while doing that particular excercise.
+            </p>
+        </div>
+        <div id="column" class="blocc">
+            <a href="cycling.html#spacing">
+                <img src="cycle.png" alt="CYCLING">
+            </a>
+            <a href="javascript:void(0)">
+                <img src="dummy.png" alt="dummy">
+            </a>
+            <a href="javascript:void(0)">
+                <img src="dummy.png" alt="dummy">
+            </a>
+        </div>
+        <div id="column" class="blocc">
+            <a href="javascript:void(0)">
+                <img src="dummy.png" alt="dummy">
+            </a>
+            <a href="javascript:void(0)">
+                <img src="dummy.png" alt="dummy">
+            </a>
+            <a href="javascript:void(0)">
+                <img src="dummy.png" alt="dummy">
+            </a>
+        </div>
+        <div id="column" class="blocc">
+            <a href="javascript:void(0)">
+                <img src="dummy.png" alt="dummy">
+            </a>
+            <a href="javascript:void(0)">
+                <img src="dummy.png" alt="dummy">
+            </a>
+            <a href="javascript:void(0)">
+                <img src="dummy.png" alt="dummy">
+            </a>
+        </div>
+        <br>
+    </div>
+
+    <script>
+        window.onscroll = function(){
+            stick();
+        };
+        
+        var topb = document.getElementById("topbar");
+        var sp = document.getElementById("spacing");
+        var sticky = topb.offsetTop;
+        
+        function stick() {
+          if (window.pageYOffset >= sticky) {
+            topb.classList.add("stuck");
+            sp.classList.add("stuck");
+          } else {
+            topb.classList.remove("stuck");
+            sp.classList.remove("stuck");
+          }
+        }
+    </script>  
+</body>
+</html>

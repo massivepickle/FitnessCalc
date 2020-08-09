@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<head>
+    <title>CYCLING - Fitness Calc</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header">
+        <a href="index.html">Fitness Calc</a>
+    </div>
+    <div id="topbar">
+        <a href="index.html#spacing">FOOD</a>
+        <a href="bmi.html">BMI &nbsp; & &nbsp; CALORIE REQUIREMENT</a>
+        <a href="#excercise">EXERCISES &nbsp; & &nbsp; <i>CALORIES-BURNED &nbsp; CALCULATOR</i></a>
+        <a href="react.html">REACTION - SPEED</a>
+    </div>
+    <div id="foodn"></div>
+    <div id="spacing"></div>
+    <div id="cycling" class="gbox">
+        <div id="column" class="big">
+            <h5>C Y C L I N G</h5>
+            <p>
+                (<a id="a" href="#calc">Click here</a>/scroll down to calculate an estimate of how many calories you burned while cycling)
+                <br><br>
+                Cycling is one of the best ways to increase heigh, as there's a lot of stretching involved. It is a great way to gradually increase your stamina.
+                <br>
+                It helps strengthen your leg muscles in particular, however, it's not only limited to the legs.
+                <br><br>
+                STAMINA: If you don't have much stamina, start off with doing 4-5km. Gradually increase to 10km, and later even to 20+km if doable. Don't care much about the speed till you are able to easily do 10km. Doing an overall slow-medium speed is good enough. You can gradually increase it.
+                <br><br>
+                STRENGTH: The higher the gear, the more force would be required to revolve the pedal at the same speed. If the track is long without many turns, higher gears will be very helpful as they give much more speed per pedal revolution, hence travelling the same distance quicker.
+                <br><br>
+                HEIGHT: It's very important to cycle EVERYDAY in order to increase height. It's fine to leave 2-5 days a month, but you must be regular to observe an increase in your height.
+            </p>
+        </div>
+    </div>
+    <div id="calc" class="gbox">
+        <div id="column" class="big">
+            <h5>C A L C U L A T O R</h5>
+            <p>
+                Use any of the 2 calculators according to the data you have to get an estimate of how many calories you burned.
+                <br><br>
+                Input the values and press the "CALCULATE" button to get the estimate.
+                <br><br>
+                (Make sure to use accurate estimate of pulse)
+                <br><br>
+            </p>
+        </div>
+        <div id="column">
+            <p>
+                <u>Speed Based</u>
+                <br><br>
+                <label for="met">Type/Speed:</label><br>
+                <select name="met" id="MET">
+                    <option value="3.5">leisure &approx; 5.5 mph/9 kmph</option>
+                    <option value="4">leisure, slow &leq; 10 mph/16 kmph</option>
+                    <option value="6">leisure, slow 10-12 mph/16-19 kmph</option>
+                    <option value="8">leisure, moderate 12-14 mph/19-22.5 kmph</option>
+                    <option value="8.5">BMX or mountain</option>
+                    <option value="10">racing, fast 14-16 mph/22.5-25.5 kmph</option>
+                    <option value="12">racing, very fast 16-19 mph/25.5-30.5 kmph</option>
+                    <option value="12">drafting, very fast &GreaterEqual; 19 mph/30.5 kmph</option>
+                    <option value="16">competetive racing &GreaterEqual; 20 mph/32 kmph</option>
+                </select>
+                <br><br>
+                <label for="sweight">Weight(kg):</label><br><input name="sweight" id="sWeight" type="number">
+                <br><br><br>
+                <label for="stime">Time(min):</label><br><input name="stime" id="sTime" type="number">
+                <br>
+                <br>
+                <button onclick="return s();">CALCULATE</button>
+                <p id="cal1">Calories Burned:</p>
+            </p>
+        </div>
+        <div id="column">
+            <p>
+                <u>Age-Pulse Based</u>
+                <br><br>
+                <label for="gender">Gender:</label><br>
+                <select name="gender" id="Gender">
+                    <option value="-1">Male</option>
+                    <option value="1">Female</option>
+                </select>
+                <br>
+                <label for="age">Age:</label><br><input name="age" id="Age" type="number">
+                <br>
+                <label for="weight">Weight(kg):</label><br><input name="weight" id="Weight" type="number">
+                <br>
+                <label for="heart">Heart Rate(bpm):</label><br><input name="heart" id="Heart" type="number">
+                <br>
+                <label for="time">Time(min):</label><br><input name="time" id="Time" type="number">
+                <br>
+                <button onclick="return ap();">CALCULATE</button>
+                <p id="cal2">Calories Burned:</p>
+            </p>
+        </div>
+    </div>
+    <script>
+        function s(){
+            if(document.getElementById('sWeight').value === "" || document.getElementById('sTime').value === ""
+            || document.getElementById('sWeight').value <= 0 || document.getElementById('sTime').value <= 0){
+                alert("Please enter proper values");
+            }else{
+                var calories1 = (document.getElementById('MET').value * document.getElementById('sWeight').value * 3.5 * document.getElementById('sTime').value)/200;
+                calories1 = Math.round(calories1);
+                document.getElementById('cal1').textContent = "Calories Burned:\n"+calories1;
+            }
+        }
+        function ap(){
+            if(document.getElementById('Weight').value === "" || document.getElementById('Time').value === ""
+            || document.getElementById('Age').value === "" || document.getElementById('Heart').value === ""
+            || document.getElementById('Weight').value <= 0 || document.getElementById('Time').value <= 0
+            || document.getElementById('Age').value <= 0 || document.getElementById('Heart').value < 69){
+                alert("Please enter proper values");
+            }else{
+                if(document.getElementById('Gender').value < 0){
+                    var calories2 = ( (document.getElementById('Age').value * 0.2017) - (document.getElementById('Weight').value * 0.09036) + (document.getElementById('Heart').value * 0.6309) - 55.0969) * document.getElementById('Time').value / 4.184;
+                }else{
+                    var calories2 = ( (document.getElementById('Age').value * 0.074) - (document.getElementById('Weight').value * 0.05741) + (document.getElementById('Heart').value * 0.4472) - 20.4472) * document.getElementById('Time').value / 4.184;
+                }
+                calories2 = Math.round(calories2);
+                document.getElementById('cal2').textContent = "Calories Burned:\n"+calories2;
+            }
+        }
+    </script>
+    <div id="excercise" class="gbox">
+        <div id="column">
+            <h5>F U L L &nbsp; L I S T</h5>
+            <p>
+                Click on any other excercise to know it's benefits and related details.
+                <br><br>
+                The calculator for each which will help estimate how many calories you burned while doing that particular excercise.
+            </p>
+        </div>
+        <div id="column" class="blocc">
+            <div id="current">
+                <img src="cycle.png" alt="CYCLING">
+            </div>
+            <a href="javascript:void(0)">
+                <img src="dummy.png" alt="dummy">
+            </a>
+            <a href="javascript:void(0)">
+                <img src="dummy.png" alt="dummy">
+            </a>
+        </div>
+        <div id="column" class="blocc">
+            <a href="javascript:void(0)">
+                <img src="dummy.png" alt="dummy">
+            </a>
+            <a href="javascript:void(0)">
+                <img src="dummy.png" alt="dummy">
+            </a>
+            <a href="javascript:void(0)">
+                <img src="dummy.png" alt="dummy">
+            </a>
+        </div>
+        <div id="column" class="blocc">
+            <a href="javascript:void(0)">
+                <img src="dummy.png" alt="dummy">
+            </a>
+            <a href="javascript:void(0)">
+                <img src="dummy.png" alt="dummy">
+            </a>
+            <a href="javascript:void(0)">
+                <img src="dummy.png" alt="dummy">
+            </a>
+        </div>
+        <br>
+    </div>
+
+    <script>
+        window.onscroll = function(){
+            stick();
+        };
+        
+        var topb = document.getElementById("topbar");
+        var sp = document.getElementById("spacing");
+        var sticky = topb.offsetTop;
+        
+        function stick() {
+          if (window.pageYOffset >= sticky) {
+            topb.classList.add("stuck");
+            sp.classList.add("stuck");
+          } else {
+            topb.classList.remove("stuck");
+            sp.classList.remove("stuck");
+          }
+        }
+    </script>  
+</body>
+</html>

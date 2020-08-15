@@ -102,7 +102,9 @@ body{
     flex-direction: column;
     justify-content: space-around;
     width: 800px;
+    margin-left: -10px;
     text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 #column.blocc{

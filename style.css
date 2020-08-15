@@ -14,6 +14,14 @@ body{
     color: black;
 }
 
+#disqus_thread{
+    align-content:center;
+}
+
+#disqus_thread iframe{
+    width: 1000px;
+}
+
 #current img{
   border: solid 3px black;
   border-radius: 30px;

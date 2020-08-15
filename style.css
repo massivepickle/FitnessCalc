@@ -15,11 +15,14 @@ body{
 }
 
 #disqus_thread{
-    align-content:center;
+    justify-content:center;
+    align-items:center;
+    margin-left: -25px;
+    width: 100%;
 }
 
 #disqus_thread iframe{
-    width: 1000px;
+    width: 100%;
 }
 
 #current img{

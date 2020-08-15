@@ -27,7 +27,7 @@ body{
   border-radius: 30px;
   height: 170px;
   width: 170px;
-  align-content: center;
+  align-content: center; 
   align-items: center;
   animation: activeColorRotate 500ms linear infinite;
 }
